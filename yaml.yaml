@@ -1,0 +1,70 @@
+switch:
+  - platform: mqtt
+    name: "Audio Effects"
+    state_topic: "holidayLights/audio/state"
+    command_topic: "holidayLights/addEffects"
+    payload_on: "Audio On"
+    payload_off: "Audio Off"
+    retain: false
+  - platform: mqtt
+    name: "Add Glitter"
+    state_topic: "holidayLights/glitter/state"
+    command_topic: "holidayLights/addEffects"
+    payload_on: "Glitter On"
+    payload_off: "Glitter Off"
+    retain: false
+  - platform: mqtt
+    name: "Add Lightning"
+    state_topic: "holidayLights/lightning/state"
+    command_topic: "holidayLights/addEffects"
+    payload_on: "Lightning On"
+    payload_off: "Lightning Off"
+    retain: false
+	
+light:
+  - platform: mqtt_json
+    name: "Holiday Lights"
+    state_topic: "holidayLights/state"
+    command_topic: "holidayLights/commands"
+    effect: true
+    brightness: true
+    effect_list:
+      - Color_Chase
+      - Color_Glitter
+      - Single_Race
+      - Double_Crash
+      - Rainbow
+      - Blocked_Colors
+      - BPM
+      - Twinkle
+      - Fire
+      - Spooky_Eyes
+      - Halloween
+      - LED_Locator
+    qos: 1
+  - platform: mqtt_json
+    name: "Holiday Lights Color 1"
+    state_topic: "holidayLights/state1"
+    command_topic: "holidayLights/commands1"
+    rgb: true
+    qos: 1
+  - platform: mqtt_json
+    name: "Holiday Lights Color 2"
+    state_topic: "holidayLights/state2"
+    command_topic: "holidayLights/commands2" 
+    rgb: true
+    qos: 1
+  - platform: mqtt_json
+    name: "Holiday Lights Color 3"
+    state_topic: "holidayLights/state3"
+    command_topic: "holidayLights/commands3"  
+    rgb: true
+    qos: 1
+	
+input_number:
+  led_identification:
+    name: LED identification
+    initial: 0
+    min: 0
+    max: 500
+    step: 1

@@ -1,0 +1,12 @@
+  houseLights:
+    name: Holiday Lights
+    control: hidden
+    entities:     
+      - light.holiday_lights
+      - light.holiday_lights_color_1
+      - light.holiday_lights_color_2
+      - light.holiday_lights_color_3
+      - switch.add_glitter
+      - switch.add_lightning
+      - switch.audio_effects
+      - input_number.led_identification
