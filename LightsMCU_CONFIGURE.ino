@@ -186,7 +186,7 @@ void callback(char* topic, byte* payload, unsigned int length)
   payload[length] = '\0';
   String newPayload = String((char *)payload);
   int intPayload = newPayload.toInt();
-  intPayload = map(intPayload, 0, 360, 0, 255);
+  //intPayload = map(intPayload, 0, 360, 0, 255);
   Serial.println(newPayload);
   Serial.println();
   if (newTopic == "holidayLights/addEffects")
