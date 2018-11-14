@@ -1,4 +1,3 @@
-
 /*****************  NEEDED TO MAKE NODEMCU WORK ***************************/
 #define FASTLED_INTERRUPT_RETRY_COUNT 0
 #define FASTLED_ESP8266_RAW_PIN_ORDER
@@ -736,15 +735,24 @@ void firstRGB()
     fadeToBlackBy( firstFloor, FIRSTFLOOR_LEDS, 80);
     for(int pixel = startPosition+1; pixel < FIRSTFLOOR_LEDS; pixel+=6)  
     {
-      firstFloor[pixel] = CRGB(red1,green1,blue1);
+      if(pixel <= FIRSTFLOOR_LEDS)
+      {
+        firstFloor[pixel] = CRGB(red1,green1,blue1);
+      }
     }
     for(int pixel = startPosition+3; pixel < FIRSTFLOOR_LEDS; pixel+=6)
     {
-      firstFloor[pixel] = CRGB(red2,green2,blue2);
+      if(pixel <= FIRSTFLOOR_LEDS)
+      {
+        firstFloor[pixel] = CRGB(red2,green2,blue2);
+      }
     }
     for(int pixel = startPosition+5; pixel < FIRSTFLOOR_LEDS; pixel+=6)
     {
-      firstFloor[pixel] = CRGB(red3,green3,blue3);
+      if(pixel <= FIRSTFLOOR_LEDS)
+      {
+        firstFloor[pixel] = CRGB(red3,green3,blue3);
+      } 
     }
   }
   if(startPosition == 1)
@@ -780,15 +788,24 @@ void secondRGB()
     fadeToBlackBy( secondFloor, SECONDFLOOR_LEDS, 20);
     for(int pixel = startPosition+1; pixel < SECONDFLOOR_LEDS; pixel+=6) 
     {
-      secondFloor[pixel] = CRGB(red1,green1,blue1);
+      if(pixel <= SECONDFLOOR_LEDS)
+      {
+        secondFloor[pixel] = CRGB(red1,green1,blue1);
+      }
     }
     for(int pixel = startPosition+3; pixel < SECONDFLOOR_LEDS; pixel+=6)  
     {
-      secondFloor[pixel] = CRGB(red2,green2,blue2);
+      if(pixel <= SECONDFLOOR_LEDS)
+      {
+        secondFloor[pixel] = CRGB(red2,green2,blue2);
+      }
     }
     for(int pixel = startPosition+5; pixel < SECONDFLOOR_LEDS; pixel+=6) 
     {
-      secondFloor[pixel] = CRGB(red3,green3,blue3);
+      if(pixel <= SECONDFLOOR_LEDS)
+      {
+        secondFloor[pixel] = CRGB(red3,green3,blue3);
+      }
     }
   }
   if(startPosition == 1)
@@ -824,14 +841,20 @@ void canesRGB()
   {
     for(int pixel = 0; pixel < 176; pixel+=2)
     {
-      candyCanes[pixel] = CRGB(255,0,0);
+      if(pixel <= CANDYCANE_LEDS)
+      {
+        candyCanes[pixel] = CRGB(255,0,0);;
+      }
     }
   }
   if(startPosition == 1 || startPosition == 3 || startPosition == 5 )
   {
     for(int pixel = 1; pixel < 176; pixel+=2)
     {
-      candyCanes[pixel] = CRGB(255,0,0);
+      if(pixel <= CANDYCANE_LEDS)
+      {
+        candyCanes[pixel] = CRGB(255,0,0);
+      } 
     }
   }
 }
@@ -843,15 +866,26 @@ void wreathRGB()
     fadeToBlackBy( wreath, WREATH_LEDS, 20);
     for(int pixel = startPosition+1; pixel < WREATH_LEDS; pixel+=6) 
     {
-      wreath[pixel] = CRGB(red1,green1,blue1);
+      if(pixel <= WREATH_LEDS)
+      {
+        wreath[pixel] = CRGB(red1,green1,blue1);
+      } 
+      
     }
     for(int pixel = startPosition+3; pixel < WREATH_LEDS; pixel+=6)
     {
-      wreath[pixel] = CRGB(red2,green2,blue2);
+      if(pixel <= WREATH_LEDS)
+      {
+        wreath[pixel] = CRGB(red2,green2,blue2);
+      } 
+      
     }
     for(int pixel = startPosition+5; pixel < WREATH_LEDS; pixel+=6)
     {
-      wreath[pixel] = CRGB(red3,green3,blue3);
+      if(pixel <= WREATH_LEDS)
+      {
+        wreath[pixel] = CRGB(red3,green3,blue3);
+      } 
     }
   }
   if(startPosition == 1)
@@ -1209,21 +1243,48 @@ void firstBlocked()
     {
       if(startPosition == 0 || startPosition == 1)
       {
-      firstFloor[i+mark] = CRGB(red1,green1,blue1);
-      firstFloor[i+10+mark] = CRGB(red2,green2,blue2);
-      firstFloor[i+20+mark] = CRGB(red3,green3,blue3);
+        if(i+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+mark] = CRGB(red1,green1,blue1);
+        }
+        if(i+10+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+10+mark] = CRGB(red2,green2,blue2);
+        }
+        if(i+20+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+20+mark] = CRGB(red3,green3,blue3);
+        }
       }
       if(startPosition == 2 || startPosition == 3)
       {
-      firstFloor[i+mark] = CRGB(red2,green2,blue2);
-      firstFloor[i+10+mark] = CRGB(red3,green3,blue3);
-      firstFloor[i+20+mark] = CRGB(red1,green1,blue1);
+        if(i+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+mark] = CRGB(red2,green2,blue2);
+        }
+        if(i+10+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+10+mark] = CRGB(red3,green3,blue3);
+        }
+        if(i+20+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+20+mark] = CRGB(red1,green1,blue1);
+        }
       }
       if(startPosition == 4 || startPosition == 5)
       {
-      firstFloor[i+mark] = CRGB(red3,green3,blue3);
-      firstFloor[i+10+mark] = CRGB(red1,green1,blue1);
-      firstFloor[i+20+mark] = CRGB(red2,green2,blue2);
+        if(i+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+mark] = CRGB(red3,green3,blue3);
+        }
+        if(i+10+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+10+mark] = CRGB(red1,green1,blue1);
+        }
+        if(i+20+mark <= FIRSTFLOOR_LEDS)
+        {
+          firstFloor[i+20+mark] = CRGB(red2,green2,blue2);
+        }
       }
     }
   }
@@ -1239,21 +1300,48 @@ void secondBlocked()
     {
       if(startPosition == 0 || startPosition == 1)
       {
-      secondFloor[i+mark] = CRGB(red1,green1,blue1);
-      secondFloor[i+10+mark] = CRGB(red2,green2,blue2);
-      secondFloor[i+20+mark] = CRGB(red3,green3,blue3);
+        if(i+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+mark] = CRGB(red1,green1,blue1);
+        }
+        if(i+10+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+10+mark] = CRGB(red2,green2,blue2);
+        }
+        if(i+20+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+20+mark] = CRGB(red3,green3,blue3);
+        }
       }
       if(startPosition == 2 || startPosition == 3)
       {
-      secondFloor[i+mark] = CRGB(red2,green2,blue2);
-      secondFloor[i+10+mark] = CRGB(red3,green3,blue3);
-      secondFloor[i+20+mark] = CRGB(red1,green1,blue1);
+        if(i+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+mark] = CRGB(red2,green2,blue2);
+        }
+        if(i+10+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+10+mark] = CRGB(red3,green3,blue3);
+        }
+        if(i+20+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+20+mark] = CRGB(red1,green1,blue1);
+        }
       }
       if(startPosition == 4 || startPosition == 5)
       {
-      secondFloor[i+mark] = CRGB(red3,green3,blue3);
-      secondFloor[i+10+mark] = CRGB(red1,green1,blue1);
-      secondFloor[i+20+mark] = CRGB(red2,green2,blue2);
+        if(i+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+mark] = CRGB(red3,green3,blue3);
+        }
+        if(i+10+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+10+mark] = CRGB(red1,green1,blue1);
+        }
+        if(i+20+mark <= SECONDFLOOR_LEDS)
+        {
+          secondFloor[i+20+mark] = CRGB(red2,green2,blue2);
+        }
       }
     }
   }
@@ -1506,14 +1594,17 @@ void firstTwinkle()
   fadeToBlackBy( firstFloor, FIRSTFLOOR_LEDS, 80);
   for( int i = 0; i < FIRSTFLOOR_LEDS-5; i+=5)
   {
-    if (random8() > twinkleChance)
+    if(i <= FIRSTFLOOR_LEDS)
     {
-      firstFloor[i] = CRGB( red1, green1, blue1);
+      if (random8() > twinkleChance)
+      {
+        firstFloor[i] = CRGB( red1, green1, blue1);
+      }
+      else
+      {
+        firstFloor[i] = CRGB( 150, 100, 40);
+      }  
     }
-    else
-    {
-      firstFloor[i] = CRGB( 150, 100, 40);
-    }  
   }                     
 }
 
@@ -1524,14 +1615,17 @@ void secondTwinkle()
   fadeToBlackBy( secondFloor, SECONDFLOOR_LEDS, 80);
   for( int i = 0; i < SECONDFLOOR_LEDS-5; i+=5)
   {
-    if (random8() > twinkleChance)
+    if(i <= SECONDFLOOR_LEDS)
     {
-      secondFloor[i] = CRGB( red1, green1, blue1);
-    }
-    else
-    {
-      secondFloor[i] = CRGB( 150, 100, 40);
-    }  
+      if (random8() > twinkleChance)
+      {
+        secondFloor[i] = CRGB( red1, green1, blue1);
+      }
+      else
+      {
+        secondFloor[i] = CRGB( 150, 100, 40);
+      } 
+    } 
   }                     
 }
 
@@ -1581,7 +1675,7 @@ void firstEyes()
   {
     unsigned int eye = random16(FIRSTFLOOR_LEDS);  
     firstFloor[eye] = CRGB(red1,green1,blue1);
-    firstFloor[eye+4] = CRGB(red1,green1,blue1);
+    firstFloor[eye-4] = CRGB(red1,green1,blue1);
   }
   if( chance > 39) 
   {
@@ -1596,7 +1690,7 @@ void secondEyes()
   {
     unsigned int eye = random16(SECONDFLOOR_LEDS);  
     secondFloor[eye] = CRGB(red1,green1,blue1);
-    secondFloor[eye+4] = CRGB(red1,green1,blue1);
+    secondFloor[eye-4] = CRGB(red1,green1,blue1);
   }
   if( chance > 39) 
   {
@@ -2561,5 +2655,3 @@ void fireWreath8()
       }
     }
 }
-
-
