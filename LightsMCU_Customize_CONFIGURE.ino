@@ -425,6 +425,12 @@ void choosePattern()
       wreathTwinkle();
       canesTwinkle();
    }
+   if(effect == "Fill_Solid")
+   {
+      firstFloorSolid();
+      secondFloorSolid();
+      wreathSolid();
+   }
    if(effect == "Fire")
    {
       fadeToBlackBy( firstFloor, FIRSTFLOOR_LEDS, 20);
@@ -1785,6 +1791,27 @@ void alarm()
     fill_solid(secondFloor, SECONDFLOOR_LEDS, 0);
     fill_solid(firstFloor, FIRSTFLOOR_LEDS, 0);
   } 
+}
+
+/**************************** FILL SOLID ****************************/
+/**************************** FILL SOLID ****************************/
+/**************************** FILL SOLID ****************************/
+/**************************** FILL SOLID ****************************/
+/**************************** FILL SOLID ****************************/
+
+void firstFloorSolid()
+{
+  fill_solid(firstFloor, FIRSTFLOOR_LEDS, CRGB(red1, green1, blue1));
+}
+
+void secondFloorSolid()
+{
+  fill_solid(secondFloor, SECONDFLOOR_LEDS, CRGB(red1, green1, blue1));
+}
+
+void wreathSolid()
+{
+  fill_solid(wreath, WREATH_LEDS, CRGB(red1, green1, blue1));
 }
 
 /**************************** LED LOCATOR ****************************/
