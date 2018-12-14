@@ -23,6 +23,9 @@ switch:
 	
 light:
   - platform: mqtt_json
+    # the most recent HA requires a different platform
+    # platform: mqtt
+    # schema: json
     name: "Holiday Lights"
     state_topic: "holidayLights/state"
     command_topic: "holidayLights/commands"
