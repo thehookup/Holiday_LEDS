@@ -47,18 +47,27 @@ light:
       - LED_Locator
     qos: 1
   - platform: mqtt_json
+    # the most recent HA requires a different platform
+    # platform: mqtt
+    # schema: json
     name: "Holiday Lights Color 1"
     state_topic: "holidayLights/state1"
     command_topic: "holidayLights/commands1"
     rgb: true
     qos: 1
   - platform: mqtt_json
+    # the most recent HA requires a different platform
+    # platform: mqtt
+    # schema: json
     name: "Holiday Lights Color 2"
     state_topic: "holidayLights/state2"
     command_topic: "holidayLights/commands2" 
     rgb: true
     qos: 1
   - platform: mqtt_json
+    # the most recent HA requires a different platform
+    # platform: mqtt
+    # schema: json
     name: "Holiday Lights Color 3"
     state_topic: "holidayLights/state3"
     command_topic: "holidayLights/commands3"  
